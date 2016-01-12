@@ -1,5 +1,16 @@
 #!/bin/bash
- 
+#
+# Author: Riley Shott (https://github.com/Ginja/Admin_Scripts)
+#
+# margarita        Startup script for the maragita webinterface
+#
+# chkconfig: 356 90 20
+# description: Margarita is a web front-end to reposado
+# the Apple Software Update replication and
+# catalog management tool. This script has only been tested
+# on RHEL 6, and would need modification before use on a Debian
+# flavour of Linux.
+
 # Source function library
 . /etc/rc.d/init.d/functions
  
