@@ -26,16 +26,11 @@ RETVAL=0
 start() {
  echo -n "Starting margarita: "
  if [ -z $PID ]; then
- 	python /usr/local/src/margarita/margarita.py -p 5000 -b 127.0.0.1 &> /var/log/margarita.log &
+ 	sudo -u reposync python /usr/local/src/margarita/margarita.py -p 5000 -b 127.0.0.1 &> /var/log/margarita.log &
  	RETVAL=$?
-	if [ $RETVAL -eq 0 ]
-		then success
-		else failure
-	fi
  	echo
  	return $RETVAL
  else
- 	failure
  	RETVAL=1
  	echo "Margarita already running: "
  	return $RETVAL
@@ -46,16 +41,10 @@ stop() {
  echo -n "Stopping margarita: "
  if [ $PID ]; then
  	kill $PID
- RETVAL=$?
-	if [ $RETVAL -eq 0 ]
- 		then success
- 		else failure
-	fi
  	PID=""
  	echo
  	return $RETVAL
  else
- 	failure
  	RETVAL=1
  	echo "Margarita wasn't running: "
  	return $RETVAL
