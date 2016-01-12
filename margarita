@@ -11,6 +11,9 @@
 # on RHEL 6, and would need modification before use on a Debian
 # flavour of Linux.
  
+# Source function library
+. /lib/lsb/init-functions
+ 
 # Variables
 PID=$(ps aux | grep "[p]ython /usr/local/src/margarita/margarita.py" | awk '{print $2}')
 RETVAL=0
