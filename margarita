@@ -55,7 +55,12 @@ stop() {
  fi
 }
 
-status() {
+restart () {
+  stop
+  start
+}
+
+status () {
   if [ $PID ]; then
   	echo "Margarita is running"
 	exit 0
@@ -65,24 +70,25 @@ status() {
   	exit 1
   fi
 }
+
+usage () {
+  echo $"Usage: $0 {start|stop|restart|status|usage}"
+}
  
 # Punch it
 case "$1" in
 start)
-  start
-;;
+  start;;
 stop)
-  stop
-;;
+  stop;;
 restart)
-  stop
-  start
-;;
+  restart;;
 status)
-  status
-;;
+  status;;
+usage)
+  usage;;
 *)
-  echo $"Usage: $0 {start|stop|restart|status}"
+  usage
   exit 1
 esac
  
