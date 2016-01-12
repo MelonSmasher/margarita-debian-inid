@@ -1,1 +1,3 @@
 init.d script for [margarita](https://github.com/jessepeterson/margarita) which is a web front end for [reposado](https://github.com/wdas/reposado) which is an open source implimentation of Apples Software Update Service.
+
+It is a fork of [this script](https://github.com/Ginja/Admin_Scripts/blob/master/margarita) which was created for RHEL. This script has been modified to work on Debian. This script assumes that you've installed margarita to `/usr/local/src/margarita`.

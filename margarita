@@ -7,13 +7,15 @@
 # chkconfig: 356 90 20
 # description: Margarita is a web front-end to reposado
 # the Apple Software Update replication and
-# catalog management tool. This script has only been tested
-# on RHEL 6, and would need modification before use on a Debian
-# flavour of Linux.
+# catalog management tool.
+#
+# Forked by Alex Markessinis (https://github.com/MelonSmasher)
+# 
+# This script has been modified to work on Debian.
  
 # Source function library
 . /lib/lsb/init-functions
- 
+
 # Variables
 PID=$(ps aux | grep "[p]ython /usr/local/src/margarita/margarita.py" | awk '{print $2}')
 RETVAL=0
