@@ -12,6 +12,8 @@
 # Forked by Alex Markessinis (https://github.com/MelonSmasher)
 # 
 # This script has been modified to work on Debian. It also assumes that you've installed margarita at /usr/local/src/
+#
+# It also assumes that there is a user called reposync that owns the reposync files.
  
 # Source function library
 . /lib/lsb/init-functions
@@ -24,7 +26,7 @@ RETVAL=0
 start() {
  echo -n "Starting margarita: "
  if [ -z $PID ]; then
- 	python /usr/local/src/margarita/margarita.py &> /var/log/margarita.log &
+ 	sudo -u reposync python /usr/local/src/margarita/margarita.py &> /var/log/margarita.log &
  	RETVAL=$?
 	if [ $RETVAL -eq 0 ]
 		then success
