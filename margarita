@@ -11,7 +11,7 @@ RETVAL=0
 start() {
  echo -n "Starting margarita: "
  if [ -z $PID ]; then
- 	python /usr/local/src/margarita/margarita.py -b ip_address_here &> /var/log/margarita.log &
+ 	python /usr/local/src/margarita/margarita.py &> /var/log/margarita.log &
  	RETVAL=$?
 	if [ $RETVAL -eq 0 ]
 		then success
