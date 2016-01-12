@@ -1,0 +1,81 @@
+#!/bin/bash
+ 
+# Source function library
+. /etc/rc.d/init.d/functions
+ 
+# Variables
+PID=$(ps aux | grep "[p]ython /usr/local/src/margarita/margarita.py" | awk '{print $2}')
+RETVAL=0
+ 
+# Methods
+start() {
+ echo -n "Starting margarita: "
+ if [ -z $PID ]; then
+ 	python /usr/local/src/margarita/margarita.py -b ip_address_here &> /var/log/margarita.log &
+ 	RETVAL=$?
+	if [ $RETVAL -eq 0 ]
+		then success
+		else failure
+	fi
+ 	echo
+ 	return $RETVAL
+ else
+ 	failure
+ 	RETVAL=1
+ 	echo "Margarita already running: "
+ 	return $RETVAL
+ fi
+}
+ 
+stop() {
+ echo -n "Stopping margarita: "
+ if [ $PID ]; then
+ 	kill $PID
+ RETVAL=$?
+	if [ $RETVAL -eq 0 ]
+ 		then success
+ 		else failure
+	fi
+ 	PID=""
+ 	echo
+ 	return $RETVAL
+ else
+ 	failure
+ 	RETVAL=1
+ 	echo "Margarita wasn't running: "
+ 	return $RETVAL
+ fi
+}
+
+status() {
+  if [ $PID ]; then
+  	echo "Margarita is running"
+	exit 0
+
+  else
+	echo "Margarita isn't running"
+  	exit 1
+  fi
+}
+ 
+# Punch it
+case "$1" in
+start)
+  start
+;;
+stop)
+  stop
+;;
+restart)
+  stop
+  start
+;;
+status)
+  status
+;;
+*)
+  echo $"Usage: $0 {start|stop|restart|status}"
+  exit 1
+esac
+ 
+exit $RETVAL
