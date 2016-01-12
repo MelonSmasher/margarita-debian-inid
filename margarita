@@ -11,7 +11,7 @@
 #
 # Forked by Alex Markessinis (https://github.com/MelonSmasher)
 # 
-# This script has been modified to work on Debian.
+# This script has been modified to work on Debian. It also assumes that you've installed margarita at /usr/local/src/
  
 # Source function library
 . /lib/lsb/init-functions
