@@ -1,1 +1,1 @@
-init.d script for [margarita](https://github.com/jessepeterson/margarita) whoch is a web front end for [reposado](https://github.com/wdas/reposado) which is an open source implimentation of Apples Software Update Service.
+init.d script for [margarita](https://github.com/jessepeterson/margarita) which is a web front end for [reposado](https://github.com/wdas/reposado) which is an open source implimentation of Apples Software Update Service.
