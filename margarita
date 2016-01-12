@@ -19,7 +19,7 @@
 . /lib/lsb/init-functions
 
 # Variables
-PID=$(ps aux | grep "sudo -u reposync python /usr/local/src/margarita/margarita.py" | awk '{print $2}')
+PID=$(ps aux | grep 'sudo -u reposync [p]ython /usr/local/src/margarita/margarita.py' | awk '{print $2}')
 RETVAL=0
  
 # Methods
